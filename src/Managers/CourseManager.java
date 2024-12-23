@@ -1,13 +1,15 @@
 package Managers;
 
 import Entities.Course;
-import Entities.Course;
+import Entities.Student;
+import Managers.abstracts.AbstractBaseManager;
+import Managers.abstracts.IBaseManager;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CourseManager implements IBaseManager<Course> {
+public class CourseManager  extends AbstractBaseManager<Course> {
 
     private static List<Course> coursesList = new ArrayList<>(); // Databasede tutulan öğretim üyesi listesini simüle eder
 

@@ -1,18 +1,21 @@
 package Managers;
 
 import Entities.Student;
+import Managers.abstracts.AbstractBaseManager;
+import Managers.abstracts.IBaseManager;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class StudentManager implements IBaseManager<Student> {
+public class StudentManager extends AbstractBaseManager<Student> {
 
     private static List<Student> studentsList = new ArrayList<Student>(); //öğrencileri tutan database'i simüle eder
 
     @Override //Örenci ekler
     public void add(Student student) {
         studentsList.add(student);
+        generalAdd(student); // Upcasting örneği
         System.out.println("Student added successfully: " + student.getId());
     }
 

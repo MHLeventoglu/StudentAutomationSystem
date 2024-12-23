@@ -3,18 +3,29 @@ package Entities;
 import java.time.LocalDateTime;
 
 public class User extends BaseEntity {
+    private long userId; // Bu genel kullanıcı id sini tutar
+    private static long lastUserId = 0; //bu da son kullanılan kullanıcı id'sini tutar
+    private String mail;
     private String username;
     private String password;
     private String role; // Student, Lecturer, Admin gibi rolleri tutabilir.
 
     // constructor
-    public User(long id, String username, String password, String role) {
+    public User(long id, String username, String password, String role, String mail) {
         super(id);
+        this.userId = ++lastUserId;
         this.username = username;
         this.password = password;
         this.role = role;
+        this.mail = mail;
     }
 
+    public String getMail(){return mail;}
+    public void setMail (String mail){this.mail = mail;}
+
+    public long getUserId(){return userId;}
+
+    public void setUserId(long userId){this.userId = userId;}
 
     public String getName(){ return username; }
 

@@ -1,5 +1,7 @@
 package Entities;
 
+import Entities.abstracts.IEntity;
+
 import java.time.LocalDateTime;
 
 public abstract class BaseEntity implements IEntity {

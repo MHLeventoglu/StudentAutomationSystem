@@ -2,12 +2,14 @@ package Managers;
 
 import Entities.Exam;
 import Entities.Student;
+import Managers.abstracts.AbstractBaseManager;
+import Managers.abstracts.IBaseManager;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ExamManager implements IBaseManager<Exam> {
+public class ExamManager  extends AbstractBaseManager<Exam> {
     private static List<Exam> examsList = new ArrayList<Exam>(); //öğrencileri tutan database'i simüle eder
 
     @Override

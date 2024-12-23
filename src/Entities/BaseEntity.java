@@ -2,7 +2,7 @@ package Entities;
 
 import java.time.LocalDateTime;
 
-public abstract class BaseEntity {
+public abstract class BaseEntity implements IEntity {
     private long id;
     private LocalDateTime createdDate;
     private LocalDateTime updatedDate;
@@ -10,11 +10,11 @@ public abstract class BaseEntity {
     //Constructors
     public BaseEntity(long id) {
         this.id = id;
-        this.createdDate = LocalDateTime.now();
-        this.updatedDate = this.createdDate;
+        this.createdDate = LocalDateTime.now(); //oluşturulduğu anın tarihini atar
+        this.updatedDate = this.createdDate; //oluşturulduğu anın tarihini atar (güncellenene kadar)
     }
 
-    // Getters and Setters
+    // Getter ve Setterlar
     public long getId() {return id;}
 
     public void setId(long id) {this.id = id;}

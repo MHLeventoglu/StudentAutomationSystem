@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class StudentManager implements IBaseManager<Student> {
 
-    private final List<Student> studentsList = new ArrayList<>(); //öğrencileri tutan database'i simüle eder
+    private static List<Student> studentsList = new ArrayList<Student>(); //öğrencileri tutan database'i simüle eder
 
     @Override //Örenci ekler
     public void add(Student student) {

@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class LecturerManager implements IBaseManager<Lecturer> {
 
-     private final List<Lecturer> lecturersList = new ArrayList<>(); // Databasede tutulan öğretim üyesi listesini simüle eder
+    private static List<Lecturer> lecturersList = new ArrayList<>(); // Databasede tutulan öğretim üyesi listesini simüle eder
 
     @Override // Öğretim üyesi ekler
     public void add(Lecturer lecturer) {

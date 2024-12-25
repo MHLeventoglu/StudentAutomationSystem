@@ -1,17 +1,22 @@
 package Managers;
 
 import Entities.Lecturer;
+import Entities.Student;
+import Managers.abstracts.AbstractBaseManager;
+import Managers.abstracts.IBaseManager;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class LecturerManager implements IBaseManager<Lecturer> {
+public class LecturerManager  extends AbstractBaseManager<Lecturer> {
 
-     private final List<Lecturer> lecturersList = new ArrayList<>(); // Databasede tutulan öğretim üyesi listesini simüle eder
+    private static List<Lecturer> lecturersList = new ArrayList<>(); // Databasede tutulan öğretim üyesi listesini simüle eder
 
     @Override // Öğretim üyesi ekler
     public void add(Lecturer lecturer) {
         lecturersList.add(lecturer);
+        generalAdd(lecturer);
         System.out.println("Lecturer added successfully: " + lecturer.getId());
 
     }

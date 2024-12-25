@@ -1,5 +1,6 @@
 import Entities.Lecturer;
 import Entities.Student;
+import Entities.User;
 import Managers.LecturerManager;
 import Managers.StudentManager;
 
@@ -52,6 +53,15 @@ public class Main {
                 System.out.println("ID: " + foundLecturer.getId() +
                         ", Name: " + foundLecturer.getName() +
                         ", Faculty: " + foundLecturer.getFaculty());
+            }
+        }
+
+        List<User> allUsers = lecturerManager.getAllUsers();
+        if (!foundLecturers.isEmpty()) {
+            System.out.println("\nLecturer found: ");
+            for (User user : allUsers) {
+                System.out.println("ID: " + user.getUserId() +
+                        ", Name: " + user.getName());
             }
         }
     }

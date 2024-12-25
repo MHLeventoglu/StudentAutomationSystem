@@ -1,22 +1,22 @@
 package Entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Student extends User {
     static long lastId = 0;
     private String department;
+    private String faculty;
     private List<Course> enrolledCourses; // Öğrencinin kayıtlı dersleri
 
     public Student(String username, String password, String department) {
         super(++lastId, username, password, "Student");
         this.department = department;
+        enrolledCourses = new ArrayList<Course>();
     }
     // Aynı zamanda Aggregation'ın "has a .." ilişkisini kullanmış olduk
 
-
-
-    // Getters and Setters
 
     public String getDepartment(){ return department; }
 
@@ -24,6 +24,30 @@ public class Student extends User {
 
     public List<Course> getEnrolledCourses(){ return enrolledCourses; }
 
-    public void setEnrolledCourses(List<Course> enrolledCourses){ this.enrolledCourses = enrolledCourses; }
+    public void addEnrolledCourse(Course course){
+        boolean exist = false;
+        for (Course a : enrolledCourses) {
+            if (a.getCourseCode() == course.getCourseCode()) {
+                exist = true;
+                break;
+            }
+        }
+        if (exist == false) {
+            this.enrolledCourses.add(course);
+            course.addStudent(this);
+        }else
+            System.out.println("This course is already exist");
+
+    }
+    public void removeEnrolledCourse(String courseCode){
+        for(Course a: enrolledCourses){
+            if (a.getCourseCode() == courseCode){
+                enrolledCourses.remove(a);
+                a.removeStudent(this);
+                break;
+            }
+        }
+
+    }
 
 }

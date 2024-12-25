@@ -1,6 +1,7 @@
 package Entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Course extends BaseEntity {
@@ -14,6 +15,7 @@ public class Course extends BaseEntity {
     public Course(String courseCode) {
         super(++lastId);
         this.courseCode = courseCode;
+        students = new ArrayList<Student>();
     }
 
     // Getters and Setters
@@ -36,6 +38,8 @@ public class Course extends BaseEntity {
 
     public List<Student> getStudents() {return students;}
 
-    public void setStudents(List<Student> students) {this.students = students;}
+    public void addStudent(Student student) {this.students.add(student);}
+
+    public void removeStudent(Student student){this.students.remove(student);}
 }
 

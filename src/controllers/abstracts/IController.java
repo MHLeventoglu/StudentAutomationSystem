@@ -1,7 +1,7 @@
-package Services.abstracts;
+package controllers.abstracts;
 
-import Entities.User;
-import Managers.abstracts.AbstractBaseManager;
+import entities.User;
+import managers.abstracts.AbstractBaseManager;
 
 import java.util.List;
 

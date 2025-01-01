@@ -1,6 +1,6 @@
-package Managers.abstracts;
+package managers.abstracts;
 
-import Entities.User;
+import entities.User;
 
 import java.util.ArrayList;
 import java.util.List;

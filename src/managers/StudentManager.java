@@ -1,17 +1,24 @@
-package Managers;
+package managers;
 
-import Entities.Student;
-import Managers.abstracts.AbstractBaseManager;
-import Managers.abstracts.IBaseManager;
+import entities.Student;
+import managers.abstracts.AbstractBaseManager;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class StudentManager extends AbstractBaseManager<Student> {
-
+    static boolean isSet = false;
     private static List<Student> studentsList = new ArrayList<Student>(); //öğrencileri tutan database'i simüle eder
-
+    public StudentManager(){
+        if (!isSet){
+            add(new Student("Muaz","1234","Bilgisayar Müh","muaz.com"));
+            add(new Student("Bünyamin","1234","Bilgisayar Müh","bünyamin.com"));
+            add(new Student("ogrenci1","1234","Elektrik Müh","ogrenci1.com"));
+            add(new Student("ogrenci2","1234","Bilgisayar Müh","ogrenci2.com"));
+            isSet = true;
+        }
+    }
     @Override //Örenci ekler
     public void add(Student student) {
         studentsList.add(student);

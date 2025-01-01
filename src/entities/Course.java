@@ -1,6 +1,5 @@
-package Entities;
+package entities;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,12 +8,19 @@ public class Course extends BaseEntity {
     private String courseCode;
     private String courseName;
     private int credit;
-    private Lecturer instructor;
+    private Lecturer instructor = null;
     private List<Student> students;
 
-    public Course(String courseCode) {
+    public Course(String courseCode, String courseName, int credit) {
         super(++lastId);
         this.courseCode = courseCode;
+        this.courseName = courseName;
+        this.credit = credit;
+        students = new ArrayList<Student>();
+    }public Course(String courseCode, String courseName) {
+        super(++lastId);
+        this.courseCode = courseCode;
+        this.courseName = courseName;
         students = new ArrayList<Student>();
     }
 
@@ -34,12 +40,24 @@ public class Course extends BaseEntity {
 
     public Lecturer getInstructor() {return instructor;}
 
-    public void setInstructor(Lecturer instructor) {this.instructor = instructor;}
+    public void setInstructor(Lecturer instructor) {
+        if(this.instructor != null){
+            this.instructor.removeCourse(this.courseCode);
+        }
+        this.instructor = instructor;
+        instructor.addCourse(this);
+
+    }
 
     public List<Student> getStudents() {return students;}
 
     public void addStudent(Student student) {this.students.add(student);}
 
     public void removeStudent(Student student){this.students.remove(student);}
+
+    @Override
+    public String toString(){
+        return this.courseName;
+    }
 }
 

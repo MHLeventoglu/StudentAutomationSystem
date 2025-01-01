@@ -1,6 +1,5 @@
-package Entities;
+package entities;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +9,8 @@ public class Student extends User {
     private String faculty;
     private List<Course> enrolledCourses; // Öğrencinin kayıtlı dersleri
 
-    public Student(String username, String password, String department) {
-        super(++lastId, username, password, "Student");
+    public Student(String username, String password, String department, String mail) {
+        super(++lastId, new String(username), new String(password), "Ogrenci",new String(mail));
         this.department = department;
         enrolledCourses = new ArrayList<Course>();
     }

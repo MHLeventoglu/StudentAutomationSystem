@@ -1,9 +1,7 @@
-package Managers;
+package managers;
 
-import Entities.Exam;
-import Entities.Student;
-import Managers.abstracts.AbstractBaseManager;
-import Managers.abstracts.IBaseManager;
+import entities.Exam;
+import managers.abstracts.AbstractBaseManager;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,4 @@
-package Entities;
-
-import java.time.LocalDateTime;
+package entities;
 
 public class User extends BaseEntity {
     private long userId; // Bu genel kullanıcı id sini tutar

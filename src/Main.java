@@ -1,8 +1,9 @@
-import Entities.Lecturer;
-import Entities.Student;
-import Entities.User;
-import Managers.LecturerManager;
-import Managers.StudentManager;
+import entities.Lecturer;
+import entities.Student;
+import entities.User;
+import managers.LecturerManager;
+import managers.StudentManager;
+import controllers.UserController;
 
 import java.util.List;
 
@@ -11,8 +12,8 @@ public class Main {
 
     public static void main(String[] args){
         StudentManager studentManager = new StudentManager();
-        studentManager.add(new Student("isim","şifre","departman"));
-        studentManager.add(new Student("isim2","şifre2","departman2"));
+        studentManager.add(new Student("isim","şifre","departman","mail1.student"));
+        studentManager.add(new Student("isim2","şifre2","departman2","mail2.student"));
         List<Student> students = studentManager.getAll();
         // Print the student details
         System.out.println("All Students:");
@@ -27,8 +28,8 @@ public class Main {
         LecturerManager lecturerManager = new LecturerManager();
 
         // Create lecturers
-        Lecturer lecturer1 = new Lecturer(1L, "JohnSmith", "password123", "Computer Science");
-        Lecturer lecturer2 = new Lecturer(2L, "JaneDoe", "password456", "Mathematics");
+        Lecturer lecturer1 = new Lecturer(1L, "JohnSmith", "password123", "Computer Science","mail1.lecturer");
+        Lecturer lecturer2 = new Lecturer(2L, "JaneDoe", "password456", "Mathematics","mail2.lecturer");
 
         // Add lecturers to the manager
         lecturerManager.add(lecturer1);
@@ -64,5 +65,9 @@ public class Main {
                         ", Name: " + user.getName());
             }
         }
+        UserController userController = new UserController();
+        User user = userController.checkPassword("muaz.com","1234");
+        System.out.println(user.getName());
+
     }
 }

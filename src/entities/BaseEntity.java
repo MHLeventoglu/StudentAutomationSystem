@@ -1,6 +1,6 @@
-package Entities;
+package entities;
 
-import Entities.abstracts.IEntity;
+import entities.abstracts.IEntity;
 
 import java.time.LocalDateTime;
 

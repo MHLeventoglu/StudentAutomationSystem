@@ -1,4 +1,4 @@
-package Managers.abstracts;
+package managers.abstracts;
 
 import java.util.List;
 

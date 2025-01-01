@@ -1,4 +1,4 @@
-package Entities.abstracts;
+package entities.abstracts;
 
 import java.time.LocalDateTime;
 

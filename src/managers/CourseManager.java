@@ -1,17 +1,35 @@
-package Managers;
+package managers;
 
-import Entities.Course;
-import Entities.Student;
-import Managers.abstracts.AbstractBaseManager;
-import Managers.abstracts.IBaseManager;
+import entities.Course;
+import managers.abstracts.AbstractBaseManager;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class CourseManager  extends AbstractBaseManager<Course> {
-
+    static boolean isSet = false;
     private static List<Course> coursesList = new ArrayList<>(); // Databasede tutulan öğretim üyesi listesini simüle eder
+
+    public CourseManager(){
+        LecturerManager lecturerManager = new LecturerManager();
+
+        if (!isSet){
+            Course prog,mat,dvs;
+            prog = new Course("prog","programlama",0);
+            prog.setInstructor(lecturerManager.getById(1));
+            mat = new Course("mat","Matematik",0);
+            mat.setInstructor(lecturerManager.getById(2));
+            dvs = new Course("dvs","Devreler ve Sistemler",0);
+            dvs.setInstructor(lecturerManager.getById(1));
+            add(prog);
+            add(mat);
+            add(dvs);
+
+            System.out.println(lecturerManager.getById(1).getCourses().get(1));
+            isSet = true;
+        }
+    }
 
     @Override // Öğretim üyesi ekler
     public void add(Course course) {

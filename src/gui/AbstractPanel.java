@@ -9,6 +9,7 @@ import managers.StudentManager;
 import controllers.UserController;
 
 import javax.swing.*;
+import java.awt.*;
 
 public abstract class AbstractPanel extends JPanel {
     public static UserController userController = new UserController();
@@ -26,6 +27,18 @@ public abstract class AbstractPanel extends JPanel {
             }
             isSet = true;
         }
+    }
+    public JButton createLogoutButton(JFrame frame) {
+        JButton logoutButton = new JButton("Çıkış Yap");
+        logoutButton.setBounds(650, 10, 100, 30);
+        logoutButton.addActionListener(e -> {
+
+            CardLayout layout = (CardLayout) frame.getContentPane().getLayout();
+            layout.show(frame.getContentPane(), "LoginPage");
+
+            JOptionPane.showMessageDialog(frame, "Oturum kapatıldı.", "Bilgi", JOptionPane.INFORMATION_MESSAGE);
+        });
+        return logoutButton;
     }
 
 }

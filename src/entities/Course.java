@@ -10,6 +10,7 @@ public class Course extends BaseEntity {
     private int credit;
     private Lecturer instructor = null;
     private List<Student> students;
+    public  boolean hasInstructor = false;
 
     public Course(String courseCode, String courseName, int credit) {
         super(++lastId);
@@ -22,6 +23,10 @@ public class Course extends BaseEntity {
         this.courseCode = courseCode;
         this.courseName = courseName;
         students = new ArrayList<Student>();
+    }
+    public Course (String courseName){
+        super();
+        this.courseName = courseName;
     }
 
     // Getters and Setters
@@ -44,6 +49,7 @@ public class Course extends BaseEntity {
         if(this.instructor != null){
             this.instructor.removeCourse(this.courseCode);
         }
+        hasInstructor = true;
         this.instructor = instructor;
         instructor.addCourse(this);
 
@@ -57,7 +63,7 @@ public class Course extends BaseEntity {
 
     @Override
     public String toString(){
-        return this.courseName;
+        return " Ders kokdu: " + this.getCourseCode() + "  /  Ders adı: " + this.courseName + "  /  Kredi: " + this.credit;
     }
 }
 

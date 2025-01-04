@@ -40,5 +40,10 @@ public class Lecturer extends User {
     public void removeCourse(String courseCode){
         courses.removeIf(c -> c.getCourseCode() == courseCode);
     }
+
+    @Override
+    public String toString(){
+        return "ID: "+this.getId()+" / İsim: "+this.getName();
+    }
 }
 

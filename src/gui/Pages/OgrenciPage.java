@@ -1,16 +1,20 @@
 package gui.Pages;
 
+import entities.Course;
+import entities.Exam;
 import entities.Student;
 import gui.AbstractPanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OgrenciPage extends AbstractPanel {
     Student ogrenci;
 
 
-    public OgrenciPage(Student ogrenci) {
+    public OgrenciPage(Student ogrenci,JFrame frame) {
         super();
         this.ogrenci = ogrenci;
 
@@ -95,21 +99,24 @@ public class OgrenciPage extends AbstractPanel {
         titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
         titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         dersSecimi.add(titleLabel);
-
-        DefaultListModel<String> alinabilirDerslerModel = new DefaultListModel<>();
-        JList<String> alinabilirDerslerList = new JList<>(alinabilirDerslerModel);
-        alinabilirDerslerModel.addElement("Matematik");
-        alinabilirDerslerModel.addElement("Fizik");
-        alinabilirDerslerModel.addElement("Kimya");
-        alinabilirDerslerModel.addElement("Biyoloji");
-
-        JScrollPane alinabilirDerslerScroll = new JScrollPane(alinabilirDerslerList);
-        dersSecimi.add(alinabilirDerslerScroll);
-
-        DefaultListModel<String> alinanDerslerModel = new DefaultListModel<>();
-        JList<String> alinanDerslerList = new JList<>(alinanDerslerModel);
+        //alınan dersler
+        DefaultListModel<Course> alinanDerslerModel = new DefaultListModel<>();
+        for (Course course : ogrenci.getEnrolledCourses()) {
+            alinanDerslerModel.addElement(course);
+        }
+        JList<Course> alinanDerslerList = new JList<>(alinanDerslerModel);
         JScrollPane alinanDerslerScroll = new JScrollPane(alinanDerslerList);
         dersSecimi.add(alinanDerslerScroll);
+        //alınabilir dersler
+        DefaultListModel<Course> alinabilirDerslerModel = new DefaultListModel<>();
+        List<Course> result = new ArrayList<>(courseManager.getAll());
+        result.removeAll(ogrenci.getEnrolledCourses());
+        for (Course course : result) {
+            alinabilirDerslerModel.addElement(course);
+        }
+        JList<Course> alinabilirDerslerList = new JList<>(alinabilirDerslerModel);
+        JScrollPane alinabilirDerslerScroll = new JScrollPane(alinabilirDerslerList);
+        dersSecimi.add(alinabilirDerslerScroll);
 
         JButton ekleButton = new JButton("Ekle");
         JButton birakButton = new JButton("Bırak");
@@ -117,16 +124,18 @@ public class OgrenciPage extends AbstractPanel {
         dersSecimi.add(birakButton);
 
         ekleButton.addActionListener(e -> {
-            String selectedValue = alinabilirDerslerList.getSelectedValue();
+            Course selectedValue = alinabilirDerslerList.getSelectedValue();
             if (selectedValue != null) {
+                ogrenci.addEnrolledCourse(selectedValue);
                 alinabilirDerslerModel.removeElement(selectedValue);
                 alinanDerslerModel.addElement(selectedValue);
             }
         });
 
         birakButton.addActionListener(e -> {
-            String selectedValue = alinanDerslerList.getSelectedValue();
+            Course selectedValue = alinanDerslerList.getSelectedValue();
             if (selectedValue != null) {
+                ogrenci.removeEnrolledCourse(selectedValue.getCourseCode());
                 alinanDerslerModel.removeElement(selectedValue);
                 alinabilirDerslerModel.addElement(selectedValue);
             }
@@ -142,12 +151,23 @@ public class OgrenciPage extends AbstractPanel {
         lblSinavTitle.setBounds(200, 10, 200, 30);
         sinavNotlari.add(lblSinavTitle);
 
-        // Logic to toggle between panels
+        DefaultListModel<String> examListModel = new DefaultListModel<>();
+        JList<String> examJList = new JList<>(examListModel);
+        JScrollPane examScrollPane = new JScrollPane(examJList);
+        examManager.getByStudenId(ogrenci.getId()).forEach(exam -> {
+            String examInfoText = exam.getCreatedDate().toLocalDate().toString()+" | "+exam.getCourse().getCourseName() +"   -   "+ exam.getExamType() +"   -   "+ ((Number)exam.getPoint()).toString();
+            examListModel.addElement(examInfoText);
+        });
+        examScrollPane.setBounds(50,50,450,440);
+        sinavNotlari.add(examScrollPane);
+
+        JButton logoutButton = createLogoutButton(frame);
+        this.add(logoutButton);
+
         btnOzluksBilgileri.addActionListener(e -> {
             ozlukBilgileri.setVisible(true);
             dersSecimi.setVisible(false);
             sinavNotlari.setVisible(false);
-            JOptionPane.showMessageDialog(this, ogrenci.getName(), "Başarı", JOptionPane.ERROR_MESSAGE);
 
             txtName.setText(ogrenci.getName());
             txtEmail.setText(ogrenci.getMail());

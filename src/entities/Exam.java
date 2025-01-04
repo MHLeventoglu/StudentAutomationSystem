@@ -6,16 +6,14 @@ public class Exam extends BaseEntity {
     private static long lastId=0;
     private long studentId;
     private String examType; // Vize, Final, Mazeret vb.
-    private LocalDateTime examDate;
     private Course course;
     private int percentImpact; // 100 üzerinden nota etkisi
     private float point; // Sınavın yüz üzerinden puanı
 
-    public Exam(long studentId, Course course, String examType,float point, LocalDateTime examDate, int percentImpact) {
+    public Exam(long studentId, Course course, String examType,float point, int percentImpact) {
         super(++lastId);
         this.studentId = studentId;
         this.examType = examType;
-        this.examDate = examDate;
         this.course = course;
         this.percentImpact = percentImpact;
         this.point = point;
@@ -30,10 +28,6 @@ public class Exam extends BaseEntity {
     public float getPoint(){ return point; }
 
     public void setPoint(float point){ this.point = point; }
-
-    public LocalDateTime getExamDate(){ return examDate; }
-
-    public void setExamDate(LocalDateTime examDate){ this.examDate = examDate; }
 
     public Course getCourse(){ return course; }
 

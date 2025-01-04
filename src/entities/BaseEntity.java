@@ -15,6 +15,7 @@ public abstract class BaseEntity implements IEntity {
         this.createdDate = LocalDateTime.now(); //oluşturulduğu anın tarihini atar
         this.updatedDate = this.createdDate; //oluşturulduğu anın tarihini atar (güncellenene kadar)
     }
+    public BaseEntity(){} // Default constructor
 
     // Getter ve Setterlar
     public long getId() {return id;}

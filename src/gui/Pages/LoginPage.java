@@ -21,35 +21,17 @@ public class LoginPage extends AbstractPanel {
 
 
         JLabel baslikLabel = new JLabel("GİRİŞ YAPINIZ!!!");
-        baslikLabel.setBounds(230, 100, 150, 25);
+        baslikLabel.setBounds(340, 100, 150, 45);
         this.add(baslikLabel);
 
 
-        JLabel rolLabel = new JLabel("Rol Seçiniz:");
-        rolLabel.setBounds(100, 150, 150, 25);
-        this.add(rolLabel);
-
-        String[] roller = {"Rol seçiniz...","Öğrenci", "Öğretmen", "Kullanıcı"};
-        JComboBox<String> rolDropdown = new JComboBox<>(roller);
-        rolDropdown.setBounds(300, 150, 150, 25);
-        rolDropdown.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent itemEvent) {
-                if (itemEvent.getSource() == rolDropdown) {
-
-                    currentRole = rolDropdown.getSelectedItem().toString();
-                }
-            }
-        });
-        this.add(rolDropdown);
-
 
         JLabel mailLabel = new JLabel("Mailinizi Giriniz:");
-        mailLabel.setBounds(100, 180, 150, 25);
+        mailLabel.setBounds(250, 180, 130, 30);
         this.add(mailLabel);
 
         JTextField mailText = new JTextField("Mailinizi Giriniz:");
-        mailText.setBounds(300, 180, 150, 25);
+        mailText.setBounds(380, 180, 150, 30);
         this.add(mailText);
 
         mailText.addFocusListener(new FocusAdapter() {
@@ -70,11 +52,11 @@ public class LoginPage extends AbstractPanel {
 
 
         JLabel passwordLabel = new JLabel("Şifrenizi Giriniz:");
-        passwordLabel.setBounds(100, 210, 150, 25);
+        passwordLabel.setBounds(250, 220, 180, 30);
         this.add(passwordLabel);
 
         JTextField passwordText = new JTextField("Şifrenizi Giriniz:");
-        passwordText.setBounds(300, 210, 150, 25);
+        passwordText.setBounds(380, 220, 150, 30);
         this.add(passwordText);
 
         passwordText.addFocusListener(new FocusAdapter() {
@@ -95,37 +77,44 @@ public class LoginPage extends AbstractPanel {
 
 
         JButton button = new JButton("Giriş");
-        button.setBounds(200, 260, 150, 35);
+        button.setBounds(325, 300, 150, 35);
         this.add(button);
 
         button.addActionListener(e -> {
             // Get user from the userController
-            System.out.println(mailText.getText().trim()+" "+ passwordText.getText().trim()); // Hata ayıklama için
-            String mail = new String(mailText.getText().trim());
-            String password = new String(passwordText.getText().trim());
-            User user = userController.checkPassword(mail,password);
-
-            if (user == null) {
-                JOptionPane.showMessageDialog(this, "Girdiğiniz mail yada şifre yanlış", "Error", JOptionPane.ERROR_MESSAGE);
-                return;
+            CardLayout layout = (CardLayout) frame.getContentPane().getLayout();
+            if (mailText.getText().equals("admin")&&passwordText.getText().equals("admin")){
+                AdminPage adminPage = new AdminPage(frame);
+                frame.add(adminPage,"AdminPage");
+                layout.show(frame.getContentPane(),"AdminPage");
+                JOptionPane.showMessageDialog(this, "Admin Rolünde oturum açıldı : admin", "Başarı", JOptionPane.INFORMATION_MESSAGE);
             }
-            if(user.getRole()=="Ogrenci"){
-                Student ogrenci = (Student) user;
-                OgrenciPage ogrenciPage = new OgrenciPage(ogrenci);
-                frame.add(ogrenciPage,"OgrenciPage");
-                CardLayout layout = (CardLayout) frame.getContentPane().getLayout();
-                layout.show(frame.getContentPane(), "OgrenciPage");
+            else {
+                System.out.println(mailText.getText().trim()+" "+ passwordText.getText().trim()); // Hata ayıklama için
+                String mail = new String(mailText.getText().trim());
+                String password = new String(passwordText.getText().trim());
+                User user = userController.checkPassword(mail,password);
 
-                JOptionPane.showMessageDialog(this, "Öğrenci Rolünde oturum açıldı :"+user.getName(), "Başarı", JOptionPane.INFORMATION_MESSAGE);
-            }
-            if(user.getRole()=="Öğretim Görevlisi"){
-                Lecturer ogrGrv = (Lecturer) user;
-                OgretimGorevlisiPage ogrGrvPage = new OgretimGorevlisiPage(ogrGrv);
-                frame.add(ogrGrvPage,"OgrGrvPage");
-                CardLayout layout = (CardLayout) frame.getContentPane().getLayout();
-                layout.show(frame.getContentPane(), "OgrGrvPage");
+                if (user == null) {
+                    JOptionPane.showMessageDialog(this, "Girdiğiniz mail yada şifre yanlış", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                if(user.getRole()=="Ogrenci"){
+                    Student ogrenci = (Student) user;
+                    OgrenciPage ogrenciPage = new OgrenciPage(ogrenci,frame);
+                    frame.add(ogrenciPage,"OgrenciPage");
+                    layout.show(frame.getContentPane(), "OgrenciPage");
 
-                JOptionPane.showMessageDialog(this, "Öğretim Görevlisi Rolünde oturum açıldı :"+user.getName(), "Başarı", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Öğrenci Rolünde oturum açıldı :"+user.getName(), "Başarı", JOptionPane.INFORMATION_MESSAGE);
+                }
+                if(user.getRole()=="Öğretim Görevlisi"){
+                    Lecturer ogrGrv = (Lecturer) user;
+                    OgretimGorevlisiPage ogrGrvPage = new OgretimGorevlisiPage(ogrGrv,frame);
+                    frame.add(ogrGrvPage,"OgrGrvPage");
+                    layout.show(frame.getContentPane(), "OgrGrvPage");
+
+                    JOptionPane.showMessageDialog(this, "Öğretim Görevlisi Rolünde oturum açıldı :"+user.getName(), "Başarı", JOptionPane.INFORMATION_MESSAGE);
+                }
             }
 
         });

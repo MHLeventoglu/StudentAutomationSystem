@@ -28,12 +28,6 @@ public abstract class AbstractBaseManager<T> implements IBaseManager<T> {
         return  usersList;
     }
 
-    /*
-    public User getUserById(){
-        return
-    }
-    */
-
     @Override
     public abstract void add(T object);
 

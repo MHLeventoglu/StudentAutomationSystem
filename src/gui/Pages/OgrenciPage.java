@@ -21,22 +21,23 @@ public class OgrenciPage extends AbstractPanel {
         this.setLayout(null);
         this.setBounds(0, 0, 800, 600);
 
-        JPanel leftPanel = new JPanel();
-        leftPanel.setBounds(10, 10, 200, 440);
-        leftPanel.setLayout(new GridLayout(5, 1, 20, 20));
-        leftPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        leftPanel.setBackground(Color.LIGHT_GRAY);
+        //menü paneli
+        JPanel menuPanel = new JPanel();
+        menuPanel.setBounds(10, 10, 200, 440);
+        menuPanel.setLayout(new GridLayout(5, 1, 20, 20));
+        menuPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        menuPanel.setBackground(Color.LIGHT_GRAY);
 
-        // Menü butonları
+        // menü butonları
         JButton btnDersSecimi = new JButton("Ders Seçimi");
         JButton btnSinavNotlari = new JButton("Sınav Notları");
         JButton btnOzluksBilgileri = new JButton("Özlük Bilgileri");
 
-        leftPanel.add(btnDersSecimi);
-        leftPanel.add(btnSinavNotlari);
-        leftPanel.add(btnOzluksBilgileri);
+        menuPanel.add(btnDersSecimi);
+        menuPanel.add(btnSinavNotlari);
+        menuPanel.add(btnOzluksBilgileri);
         ////////////////////////////////////////////////////////////////////////////
-        // Özlük Bilgileri Paneli
+        // özlük bilgileri Paneli
         JPanel ozlukBilgileri = new JPanel();
         ozlukBilgileri.setBounds(220, 10, 550, 440);
         ozlukBilgileri.setLayout(null);
@@ -54,6 +55,7 @@ public class OgrenciPage extends AbstractPanel {
         txtName.setBounds(200, 60, 300, 30);
         ozlukBilgileri.add(txtName);
 
+        //mail
         JLabel lblEmail = new JLabel("Mail:");
         lblEmail.setBounds(50, 110, 100, 30);
         ozlukBilgileri.add(lblEmail);
@@ -62,35 +64,56 @@ public class OgrenciPage extends AbstractPanel {
         txtEmail.setBounds(200, 110, 300, 30);
         ozlukBilgileri.add(txtEmail);
 
-        JLabel lblYear = new JLabel("Giriş Yılı:");
-        lblYear.setBounds(50, 160, 100, 30);
-        ozlukBilgileri.add(lblYear);
+        //giriş yılı
+        JLabel lblYıl = new JLabel("Giriş Yılı:");
+        lblYıl.setBounds(50, 160, 100, 30);
+        ozlukBilgileri.add(lblYıl);
 
-        JTextField txtYear = new JTextField();
-        txtYear.setBounds(200, 160, 300, 30);
-        ozlukBilgileri.add(txtYear);
+        JTextField txtYıl = new JTextField();
+        txtYıl.setBounds(200, 160, 300, 30);
+        txtYıl.setEditable(false);
+        ozlukBilgileri.add(txtYıl);
 
-        JLabel lblTerm = new JLabel("Dönem:");
-        lblTerm.setBounds(50, 210, 100, 30);
-        ozlukBilgileri.add(lblTerm);
+        //id
+        JLabel lblId = new JLabel("Id:");
+        lblId.setBounds(50, 210, 100, 30);
+        ozlukBilgileri.add(lblId);
 
-        JTextField txtTerm = new JTextField();
-        txtTerm.setBounds(200, 210, 300, 30);
-        ozlukBilgileri.add(txtTerm);
+        JTextField txtId = new JTextField();
+        txtId.setBounds(200, 210, 300, 30);
+        txtId.setEditable(false);
+        ozlukBilgileri.add(txtId);
 
-        JLabel lblFaculty = new JLabel("Fakülte / Bölüm:");
-        lblFaculty.setBounds(50, 260, 150, 30);
-        ozlukBilgileri.add(lblFaculty);
+        //fakülte
+        JLabel lblFakulte = new JLabel("Fakülte / Bölüm:");
+        lblFakulte.setBounds(50, 260, 150, 30);
+        ozlukBilgileri.add(lblFakulte);
 
-        JTextField txtFaculty = new JTextField();
-        txtFaculty.setBounds(200, 260, 300, 30);
-        ozlukBilgileri.add(txtFaculty);
+        JTextField txtFakulte = new JTextField();
+        txtFakulte.setEditable(false);
+        txtFakulte.setBounds(200, 260, 300, 30);
+        ozlukBilgileri.add(txtFakulte);
 
+        //şifre
+        JLabel lblSifre = new JLabel("Şifre:");
+        lblSifre.setBounds(50, 310, 150, 30);
+        ozlukBilgileri.add(lblSifre);
+
+        JTextField txtSifre = new JTextField();
+        txtSifre.setBounds(200, 310, 300, 30);
+        ozlukBilgileri.add(txtSifre);
+
+        //kaydet butonu
         JButton kaydetOzluk = new JButton("Kaydet");
-        kaydetOzluk.setBounds(350, 310, 150, 30);
+        kaydetOzluk.setBounds(350, 360, 150, 30);
         ozlukBilgileri.add(kaydetOzluk);
+        kaydetOzluk.addActionListener(e -> {
+            ogrenci.setMail(txtEmail.getText());
+            ogrenci.setName(txtName.getText());
+            ogrenci.setPassword(txtSifre.getText());
+        });
         ///////////////////////////////////////////////////////////////////
-        // Ders Seçimi Paneli
+        // ders seçimi paneli
         JPanel dersSecimi = new JPanel();
         dersSecimi.setBounds(220, 10, 550, 440);
         dersSecimi.setLayout(new BoxLayout(dersSecimi, BoxLayout.Y_AXIS));
@@ -141,7 +164,7 @@ public class OgrenciPage extends AbstractPanel {
             }
         });
 
-        // Sınav Notları Paneli
+        // sınav notları paneli
         JPanel sinavNotlari = new JPanel();
         sinavNotlari.setBounds(220, 10, 550, 440);
         sinavNotlari.setLayout(null);
@@ -161,17 +184,20 @@ public class OgrenciPage extends AbstractPanel {
         examScrollPane.setBounds(50,50,450,440);
         sinavNotlari.add(examScrollPane);
 
-        JButton logoutButton = createLogoutButton(frame);
-        this.add(logoutButton);
+        JButton btCcıkısYap = createLogoutButton(frame);
+        this.add(btCcıkısYap);
 
         btnOzluksBilgileri.addActionListener(e -> {
             ozlukBilgileri.setVisible(true);
             dersSecimi.setVisible(false);
             sinavNotlari.setVisible(false);
 
+            txtYıl.setText(ogrenci.getCreatedDate().toLocalDate().toString());
             txtName.setText(ogrenci.getName());
             txtEmail.setText(ogrenci.getMail());
-            txtFaculty.setText(ogrenci.getDepartment());
+            txtId.setText(((Number)ogrenci.getId()).toString());
+            txtSifre.setText(ogrenci.getPassword());
+            txtFakulte.setText(ogrenci.getDepartment());
         });
 
         btnDersSecimi.addActionListener(e -> {
@@ -186,7 +212,7 @@ public class OgrenciPage extends AbstractPanel {
             sinavNotlari.setVisible(true);
         });
 
-        this.add(leftPanel);
+        this.add(menuPanel);
         this.add(ozlukBilgileri);
         this.add(dersSecimi);
         this.add(sinavNotlari);

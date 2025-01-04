@@ -19,11 +19,9 @@ public class LoginPage extends AbstractPanel {
         this.setSize(800, 600);
         this.setLayout(null);
 
-
         JLabel baslikLabel = new JLabel("GİRİŞ YAPINIZ!!!");
         baslikLabel.setBounds(340, 100, 150, 45);
         this.add(baslikLabel);
-
 
 
         JLabel mailLabel = new JLabel("Mailinizi Giriniz:");
@@ -66,7 +64,6 @@ public class LoginPage extends AbstractPanel {
                     passwordText.setText("");
                 }
             }
-
             @Override
             public void focusLost(FocusEvent e) {
                 if (passwordText.getText().isEmpty()) {
@@ -74,7 +71,6 @@ public class LoginPage extends AbstractPanel {
                 }
             }
         });
-
 
         JButton button = new JButton("Giriş");
         button.setBounds(325, 300, 150, 35);

@@ -12,6 +12,7 @@ public class Course extends BaseEntity {
     private List<Student> students;
     public  boolean hasInstructor = false;
 
+    //Farklı ihtiyaçlar için 3 farklı constructor
     public Course(String courseCode, String courseName, int credit) {
         super(++lastId);
         this.courseCode = courseCode;
@@ -29,7 +30,6 @@ public class Course extends BaseEntity {
         this.courseName = courseName;
     }
 
-    // Getters and Setters
 
     public void setCourseCode(String courseCode) {this.courseCode = courseCode;}
 

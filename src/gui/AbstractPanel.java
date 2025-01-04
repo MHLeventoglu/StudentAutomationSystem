@@ -30,7 +30,7 @@ public abstract class AbstractPanel extends JPanel {
     }
     public JButton createLogoutButton(JFrame frame) {
         JButton logoutButton = new JButton("Çıkış Yap");
-        logoutButton.setBounds(650, 10, 100, 30);
+        logoutButton.setBounds(650, 520, 100, 30);
         logoutButton.addActionListener(e -> {
 
             CardLayout layout = (CardLayout) frame.getContentPane().getLayout();

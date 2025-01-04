@@ -9,7 +9,7 @@ public abstract class BaseEntity implements IEntity {
     private LocalDateTime createdDate;
     private LocalDateTime updatedDate;
 
-    //Constructors
+    //Constructor
     public BaseEntity(long id) {
         this.id = id;
         this.createdDate = LocalDateTime.now(); //oluşturulduğu anın tarihini atar
@@ -17,7 +17,6 @@ public abstract class BaseEntity implements IEntity {
     }
     public BaseEntity(){} // Default constructor
 
-    // Getter ve Setterlar
     public long getId() {return id;}
 
     public void setId(long id) {this.id = id;}

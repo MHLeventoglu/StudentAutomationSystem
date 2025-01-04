@@ -13,9 +13,7 @@ public class Student extends User {
         super(++lastId, new String(username), new String(password), "Ogrenci",new String(mail));
         this.department = department;
         enrolledCourses = new ArrayList<Course>();
-    }
-    // Aynı zamanda Aggregation'ın "has a .." ilişkisini kullanmış olduk
-
+    }// Aynı zamanda Aggregation'ın "has a .." ilişkisini kullanmış olduk
 
     public String getDepartment(){ return department; }
 

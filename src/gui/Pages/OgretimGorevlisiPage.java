@@ -33,34 +33,36 @@ public class OgretimGorevlisiPage extends AbstractPanel {
 
         this.setLayout(null);
 
-        JPanel leftPanel = new JPanel();
-        leftPanel.setBounds(10, 10, 200, 440);
-        leftPanel.setLayout(new GridLayout(5, 1, 20, 20));
-        leftPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        leftPanel.setBackground(Color.LIGHT_GRAY);
+        //menü paneli
+        JPanel menuPanel = new JPanel();
+        menuPanel.setBounds(10, 10, 200, 440);
+        menuPanel.setLayout(new GridLayout(5, 1, 20, 20));
+        menuPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        menuPanel.setBackground(Color.LIGHT_GRAY);
 
+        //menü butonları
         JButton btnSinavNotuGirisi = new JButton("Sınav Notu Girişi");
         JButton btnDersProgrami = new JButton("Ders Programı");
         JButton btnSifreDegis = new JButton("Şifre Değiştirme");
         JButton btnOgrenciListesi = new JButton("Öğrenci Listesi/Not girme");
 
 
-        leftPanel.add(btnSifreDegis);
-        leftPanel.add(btnOgrenciListesi);
+        menuPanel.add(btnSifreDegis);
+        menuPanel.add(btnOgrenciListesi);
 
 /// //////////////////////////// Şifre Değiştirme:
-        //Şifre değiştirme paneli
+        //şifre değiştirme paneli
         JPanel sifreDegistir = new JPanel();
         sifreDegistir.setBounds(220, 10, 550, 440);
         sifreDegistir.setLayout(null);
 
         // TextBox ekleme
         JTextField sifreField = new JTextField(ogrGrv.getPassword());
-        sifreField.setBounds(50, 200, 200, 30); // Konum ve boyut (x, y, genişlik, yükseklik)
+        sifreField.setBounds(50, 200, 200, 30);
         sifreDegistir.add(sifreField);
-        // Button ekleme
+        // button ekleme
         JButton sifredegisbtn = new JButton("Değiştir");
-        sifredegisbtn.setBounds(250, 200, 100, 30); // Konum ve boyut
+        sifredegisbtn.setBounds(250, 200, 100, 30);
         sifreDegistir.add(sifredegisbtn);
         sifredegisbtn.addActionListener(e -> {
             ogrGrv.setPassword(sifreField.getText());
@@ -78,28 +80,26 @@ public class OgretimGorevlisiPage extends AbstractPanel {
         lblOgrenciListesi.setBounds(200, 10, 200, 30);
         ogrenciListesi.add(lblOgrenciListesi);
 
-        // Combobox //
+        //combobox
         JComboBox<Course> courseComboBox = new JComboBox<>();
         courseComboBox.addItem(new Course("Ders Seçiniz..."));
         ogrGrv.getCourses().forEach(courseComboBox::addItem);
         courseComboBox.setBounds(50,60,450,30);
         ogrenciListesi.add(courseComboBox);
 
-        //Öğrenci listesi
+        //öğrenci listesi
         DefaultListModel<KeyValue> ogrenciListesiModel = new DefaultListModel<>();
         JList<KeyValue> ogrenciJList = new JList<>(ogrenciListesiModel);
         JScrollPane scrollOgrenciListesi = new JScrollPane(ogrenciJList);
         scrollOgrenciListesi.setBounds(50, 110, 450, 280);
         ogrenciListesi.add(scrollOgrenciListesi);
+
         //Combobox action listener'ı
         courseComboBox.addActionListener(e -> {
-            // Get the selected Course
             Course selectedCourse = (Course) courseComboBox.getSelectedItem();
             if (selectedCourse != null) {
-                // Clear the previous student list
                 ogrenciListesiModel.clear();
 
-                // Populate the JList with students from the selected course
                 selectedCourse.getStudents().forEach(student -> {
                     long studentId = student.getId();
                     String studentInfo = "ID: "+student.getId() + "  İsim: " + student.getName();
@@ -108,22 +108,21 @@ public class OgretimGorevlisiPage extends AbstractPanel {
             }
         });
 
-        // examTypeCombobox (ComboBox)
-        String[] examTypes = {"sınav tipi","Final", "Vize"}; // Kombinasyondaki seçenekler
+
+        String[] examTypes = {"sınav tipi","Final", "Vize"};
         JComboBox<String> examTypeComboBox = new JComboBox<>(examTypes);
         examTypeComboBox.setBounds(50, 410, 170, 30);
         ogrenciListesi.add(examTypeComboBox);
 
-        // pointsSpinner (JSpinner)
-        SpinnerNumberModel pointsModel = new SpinnerNumberModel(0.0f, 0.0f, 100.0f, 1.0f); // Min, max, başlangıç değeri, artış miktarı
+        SpinnerNumberModel pointsModel = new SpinnerNumberModel(0.0f, 0.0f, 100.0f, 1.0f);
         JSpinner pointsSpinner = new JSpinner(pointsModel);
         pointsSpinner.setBounds(225, 410, 170, 30);
         ogrenciListesi.add(pointsSpinner);
 
-        // adjustExamButton (Button)
-        JButton adjustExamButton = new JButton("Notu Gir");
-        adjustExamButton.setBounds(400, 410, 100, 30);
-        adjustExamButton.addActionListener(e->{
+        // not gir butonu
+        JButton btnNotGir = new JButton("Notu Gir");
+        btnNotGir.setBounds(400, 410, 100, 30);
+        btnNotGir.addActionListener(e->{
             long studentId = 0;
             if( !ogrenciJList.isSelectionEmpty()){studentId = ogrenciJList.getSelectedValue().key;}
             Course selectedCourse = (Course) courseComboBox.getSelectedItem();
@@ -141,7 +140,7 @@ public class OgretimGorevlisiPage extends AbstractPanel {
 
 
         });
-        ogrenciListesi.add(adjustExamButton);
+        ogrenciListesi.add(btnNotGir);
 
 
         ogrenciListesi.revalidate();
@@ -188,7 +187,7 @@ public class OgretimGorevlisiPage extends AbstractPanel {
             }
         });
 
-        this.add(leftPanel);
+        this.add(menuPanel);
         this.add(sifreDegistir);
         this.add(ogrenciListesi);
     }

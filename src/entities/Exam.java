@@ -10,6 +10,7 @@ public class Exam extends BaseEntity {
     private int percentImpact; // 100 üzerinden nota etkisi
     private float point; // Sınavın yüz üzerinden puanı
 
+    // Constructor
     public Exam(long studentId, Course course, String examType,float point, int percentImpact) {
         super(++lastId);
         this.studentId = studentId;

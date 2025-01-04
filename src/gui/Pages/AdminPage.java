@@ -19,75 +19,75 @@ public class AdminPage extends AbstractPanel {
         this.setLayout(null);
         this.setBounds(0, 0, 800, 600);
 
-        JPanel leftPanel = new JPanel();
-        leftPanel.setBounds(10, 10, 200, 540);
-        leftPanel.setLayout(new GridLayout(6, 1, 20, 20));
-        leftPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        leftPanel.setBackground(Color.LIGHT_GRAY);
+        JPanel menuPanel = new JPanel();
+        menuPanel.setBounds(10, 10, 200, 540);
+        menuPanel.setLayout(new GridLayout(6, 1, 20, 20));
+        menuPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        menuPanel.setBackground(Color.LIGHT_GRAY);
 
         // Menü butonları
-        JButton btnOgretimGorevlisiEkle = new JButton("Öğretim Görevlisi Ekle");
+        JButton btnOgrGrvEkle = new JButton("Öğretim Görevlisi Ekle");
         JButton btnOgrenciEkle = new JButton("Öğrenci Ekle");
         JButton btnDersEkle = new JButton("Ders Ekle");
         JButton btnOgrenciListesi = new JButton("Öğrenci Listesi");
-        JButton btnOgretimGorevlileriListesi = new JButton("Öğretim Üyeleri Listesi");
+        JButton btnOgrGrvListesi = new JButton("Öğretim Üyeleri Listesi");
         JButton btnDerslerListesi = new JButton("Dersler Listesi");
 
-        leftPanel.add(btnOgretimGorevlisiEkle);
-        leftPanel.add(btnOgrenciEkle);
-        leftPanel.add(btnDersEkle);
-        leftPanel.add(btnOgrenciListesi);
-        leftPanel.add(btnOgretimGorevlileriListesi);
-        leftPanel.add(btnDerslerListesi);
+        menuPanel.add(btnOgrGrvEkle);
+        menuPanel.add(btnOgrenciEkle);
+        menuPanel.add(btnDersEkle);
+        menuPanel.add(btnOgrenciListesi);
+        menuPanel.add(btnOgrGrvListesi);
+        menuPanel.add(btnDerslerListesi);
 
         // Öğretim Görevlisi Ekle Paneli
-        JPanel pnlOgretimGorevlisiEkle = new JPanel();
-        pnlOgretimGorevlisiEkle.setBounds(220, 10, 550, 540);
-        pnlOgretimGorevlisiEkle.setLayout(null);
+        JPanel panelOgretimGorevlisiEkle = new JPanel();
+        panelOgretimGorevlisiEkle.setBounds(220, 10, 550, 540);
+        panelOgretimGorevlisiEkle.setLayout(null);
 
         JLabel lblOgretimGorevlisiEkle = new JLabel("Öğretim Görevlisi Ekle");
         lblOgretimGorevlisiEkle.setFont(new Font("Arial", Font.BOLD, 24));
         lblOgretimGorevlisiEkle.setBounds(170, 10, 300, 30);
-        pnlOgretimGorevlisiEkle.add(lblOgretimGorevlisiEkle);
+        panelOgretimGorevlisiEkle.add(lblOgretimGorevlisiEkle);
 
-        JLabel lblLecturerName = new JLabel("Ad Soyad:");
-        lblLecturerName.setBounds(50, 60, 100, 30);
-        pnlOgretimGorevlisiEkle.add(lblLecturerName);
+        JLabel lblOgrGrvName = new JLabel("Ad Soyad:");
+        lblOgrGrvName.setBounds(50, 60, 100, 30);
+        panelOgretimGorevlisiEkle.add(lblOgrGrvName);
 
-        JTextField txtLecturerName = new JTextField();
-        txtLecturerName.setBounds(200, 60, 300, 30);
-        pnlOgretimGorevlisiEkle.add(txtLecturerName);
+        JTextField txtOgrGrvName = new JTextField();
+        txtOgrGrvName.setBounds(200, 60, 300, 30);
+        panelOgretimGorevlisiEkle.add(txtOgrGrvName);
 
-        JLabel lblLecturerPassword = new JLabel("Password:");
-        lblLecturerPassword.setBounds(50, 110, 100, 30);
-        pnlOgretimGorevlisiEkle.add(lblLecturerPassword);
+        JLabel lblOgrGrvSifre = new JLabel("Password:");
+        lblOgrGrvSifre.setBounds(50, 110, 100, 30);
+        panelOgretimGorevlisiEkle.add(lblOgrGrvSifre);
 
-        JTextField txtLecturerPassword = new JTextField();
-        txtLecturerPassword.setBounds(200, 110, 300, 30);
-        pnlOgretimGorevlisiEkle.add(txtLecturerPassword);
+        JTextField txtOgrGrvSifre = new JTextField();
+        txtOgrGrvSifre.setBounds(200, 110, 300, 30);
+        panelOgretimGorevlisiEkle.add(txtOgrGrvSifre);
 
-        JLabel lblLecturerFaculty = new JLabel("Fakülte / Bölüm:");
-        lblLecturerFaculty.setBounds(50, 160, 100, 30);
-        pnlOgretimGorevlisiEkle.add(lblLecturerFaculty);
+        JLabel lblOgrGrvFakulte = new JLabel("Fakülte / Bölüm:");
+        lblOgrGrvFakulte.setBounds(50, 160, 100, 30);
+        panelOgretimGorevlisiEkle.add(lblOgrGrvFakulte);
 
-        JTextField txtLecturerFaculty = new JTextField();
-        txtLecturerFaculty.setBounds(200, 160, 300, 30);
-        pnlOgretimGorevlisiEkle.add(txtLecturerFaculty);
+        JTextField txtOgrGrvFakulte = new JTextField();
+        txtOgrGrvFakulte.setBounds(200, 160, 300, 30);
+        panelOgretimGorevlisiEkle.add(txtOgrGrvFakulte);
 
-        JLabel lblLecturerMail = new JLabel("Mail:");
-        lblLecturerMail.setBounds(50, 210, 100, 30);
-        pnlOgretimGorevlisiEkle.add(lblLecturerMail);
+        JLabel lblOgrGrvMail = new JLabel("Mail:");
+        lblOgrGrvMail.setBounds(50, 210, 100, 30);
+        panelOgretimGorevlisiEkle.add(lblOgrGrvMail);
 
-        JTextField txtLecturerMail = new JTextField();
-        txtLecturerMail.setBounds(200, 210, 300, 30);
-        pnlOgretimGorevlisiEkle.add(txtLecturerMail);
+        JTextField txtOgrGrvMail = new JTextField();
+        txtOgrGrvMail.setBounds(200, 210, 300, 30);
+        panelOgretimGorevlisiEkle.add(txtOgrGrvMail);
 
-        JButton btnKaydetLecturer = new JButton("Kaydet");
-        btnKaydetLecturer.setBounds(350, 310, 150, 30);
-        pnlOgretimGorevlisiEkle.add(btnKaydetLecturer);
-        btnKaydetLecturer.addActionListener(e -> {
-            if (txtLecturerMail.isValid() && txtLecturerFaculty.isValid() && txtLecturerName.isValid() && txtLecturerPassword.isValid()){
-                lecturerManager.add(new Lecturer(txtLecturerName.getText(),txtLecturerPassword.getText(),txtLecturerFaculty.getText(),txtLecturerMail.getText()));
+        JButton btnOgrGrvKaydet = new JButton("Kaydet");
+        btnOgrGrvKaydet.setBounds(350, 310, 150, 30);
+        panelOgretimGorevlisiEkle.add(btnOgrGrvKaydet);
+        btnOgrGrvKaydet.addActionListener(e -> {
+            if (txtOgrGrvMail.isValid() && txtOgrGrvFakulte.isValid() && txtOgrGrvName.isValid() && txtOgrGrvSifre.isValid()){
+                lecturerManager.add(new Lecturer(txtOgrGrvName.getText(),txtOgrGrvSifre.getText(),txtOgrGrvFakulte.getText(),txtOgrGrvMail.getText()));
             }
             else
                 JOptionPane.showMessageDialog(this, "Lütfen tüm kutucukları doldurunuz!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -97,55 +97,54 @@ public class AdminPage extends AbstractPanel {
 
 
 
-
         // Öğrenci Ekle Paneli
-        JPanel pnlOgrenciEkle = new JPanel();
-        pnlOgrenciEkle.setBounds(220, 10, 550, 540);
-        pnlOgrenciEkle.setLayout(null);
+        JPanel panelOgrenciEkle = new JPanel();
+        panelOgrenciEkle.setBounds(220, 10, 550, 540);
+        panelOgrenciEkle.setLayout(null);
 
         JLabel lblOgrenciEkle = new JLabel("Öğrenci Ekle");
         lblOgrenciEkle.setFont(new Font("Arial", Font.BOLD, 24));
         lblOgrenciEkle.setBounds(170, 10, 300, 30);
-        pnlOgrenciEkle.add(lblOgrenciEkle);
+        panelOgrenciEkle.add(lblOgrenciEkle);
 
         JLabel lblOgrenciName = new JLabel("Ad Soyad:");
         lblOgrenciName.setBounds(50, 60, 100, 30);
-        pnlOgrenciEkle.add(lblOgrenciName);
+        panelOgrenciEkle.add(lblOgrenciName);
 
         JTextField txtOgrenciName = new JTextField();
         txtOgrenciName.setBounds(200, 60, 300, 30);
-        pnlOgrenciEkle.add(txtOgrenciName);
+        panelOgrenciEkle.add(txtOgrenciName);
 
-        JLabel lblOgrenciPassword = new JLabel("Password:");
-        lblOgrenciPassword.setBounds(50, 110, 100, 30);
-        pnlOgrenciEkle.add(lblOgrenciPassword);
+        JLabel lblOgrenciSifre = new JLabel("Password:");
+        lblOgrenciSifre.setBounds(50, 110, 100, 30);
+        panelOgrenciEkle.add(lblOgrenciSifre);
 
-        JTextField txtOgrenciPassword = new JTextField();
-        txtOgrenciPassword.setBounds(200, 110, 300, 30);
-        pnlOgrenciEkle.add(txtOgrenciPassword);
+        JTextField txtOgrenciSifre = new JTextField();
+        txtOgrenciSifre.setBounds(200, 110, 300, 30);
+        panelOgrenciEkle.add(txtOgrenciSifre);
 
-        JLabel lblOgrenciFaculty = new JLabel("Fakülte / Bölüm:");
-        lblOgrenciFaculty.setBounds(50, 160, 100, 30);
-        pnlOgrenciEkle.add(lblOgrenciFaculty);
+        JLabel lblOgrenciFakulte = new JLabel("Fakülte / Bölüm:");
+        lblOgrenciFakulte.setBounds(50, 160, 100, 30);
+        panelOgrenciEkle.add(lblOgrenciFakulte);
 
-        JTextField txtOgrenciFaculty = new JTextField();
-        txtOgrenciFaculty.setBounds(200, 160, 300, 30);
-        pnlOgrenciEkle.add(txtOgrenciFaculty);
+        JTextField txtOgrenciFakulte = new JTextField();
+        txtOgrenciFakulte.setBounds(200, 160, 300, 30);
+        panelOgrenciEkle.add(txtOgrenciFakulte);
 
         JLabel lblOgrenciMail = new JLabel("Mail:");
         lblOgrenciMail.setBounds(50, 210, 100, 30);
-        pnlOgrenciEkle.add(lblOgrenciMail);
+        panelOgrenciEkle.add(lblOgrenciMail);
 
         JTextField txtOgrenciMail = new JTextField();
         txtOgrenciMail.setBounds(200, 210, 300, 30);
-        pnlOgrenciEkle.add(txtOgrenciMail);
+        panelOgrenciEkle.add(txtOgrenciMail);
 
-        JButton btnKaydetOE = new JButton("Kaydet");
-        btnKaydetOE.setBounds(350, 310, 150, 30);
-        pnlOgrenciEkle.add(btnKaydetOE);
-        btnKaydetOE.addActionListener(e -> {
-            if (txtOgrenciMail.isValid() && txtOgrenciFaculty.isValid() && txtOgrenciName.isValid() && txtOgrenciPassword.isValid() ){
-                studentManager.add(new Student(txtOgrenciName.getText(),txtOgrenciPassword.getText(),txtOgrenciFaculty.getText(),txtOgrenciMail.getText()));
+        JButton btnOgrenciKaydet = new JButton("Kaydet");
+        btnOgrenciKaydet.setBounds(350, 310, 150, 30);
+        panelOgrenciEkle.add(btnOgrenciKaydet);
+        btnOgrenciKaydet.addActionListener(e -> {
+            if (txtOgrenciMail.isValid() && txtOgrenciFakulte.isValid() && txtOgrenciName.isValid() && txtOgrenciSifre.isValid() ){
+                studentManager.add(new Student(txtOgrenciName.getText(),txtOgrenciSifre.getText(),txtOgrenciFakulte.getText(),txtOgrenciMail.getText()));
             }
             else
                 JOptionPane.showMessageDialog(this, "Lütfen tüm kutucukları doldurunuz!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -155,45 +154,45 @@ public class AdminPage extends AbstractPanel {
 
 
         // Ders Ekle Paneli
-        JPanel pnlDersEkle = new JPanel();
-        pnlDersEkle.setBounds(220, 10, 550, 540);
-        pnlDersEkle.setLayout(null);
+        JPanel panelDersEkle = new JPanel();
+        panelDersEkle.setBounds(220, 10, 550, 540);
+        panelDersEkle.setLayout(null);
 
         JLabel lblDersEkle = new JLabel("Ders Ekle");
         lblDersEkle.setFont(new Font("Arial", Font.BOLD, 24));
         lblDersEkle.setBounds(170, 10, 300, 30);
-        pnlDersEkle.add(lblDersEkle);
+        panelDersEkle.add(lblDersEkle);
 
         JLabel lblDersKodu = new JLabel("Ders Kodu:");
         lblDersKodu.setBounds(50, 60, 100, 30);
-        pnlDersEkle.add(lblDersKodu);
+        panelDersEkle.add(lblDersKodu);
 
         JTextField txtDersKodu = new JTextField();
         txtDersKodu.setBounds(200, 60, 300, 30);
-        pnlDersEkle.add(txtDersKodu);
+        panelDersEkle.add(txtDersKodu);
 
         JLabel lblDersName = new JLabel("Ders Adı:");
         lblDersName.setBounds(50, 110, 100, 30);
-        pnlDersEkle.add(lblDersName);
+        panelDersEkle.add(lblDersName);
 
         JTextField txtDersName = new JTextField();
         txtDersName.setBounds(200, 110, 300, 30);
-        pnlDersEkle.add(txtDersName);
+        panelDersEkle.add(txtDersName);
 
-        JLabel lblDersCredit = new JLabel("Ders Kredisi:");
-        lblDersCredit.setBounds(50, 160, 100, 30);
-        pnlDersEkle.add(lblDersCredit);
+        JLabel lblDersKredisi = new JLabel("Ders Kredisi:");
+        lblDersKredisi.setBounds(50, 160, 100, 30);
+        panelDersEkle.add(lblDersKredisi);
 
-        JTextField txtDersCredit = new JTextField();
-        txtDersCredit.setBounds(200, 160, 300, 30);
-        pnlDersEkle.add(txtDersCredit);
+        JTextField txtDersKredisi = new JTextField();
+        txtDersKredisi.setBounds(200, 160, 300, 30);
+        panelDersEkle.add(txtDersKredisi);
 
-        JButton btnKaydetDers = new JButton("Kaydet");
-        btnKaydetDers.setBounds(350, 310, 150, 30);
-        pnlDersEkle.add(btnKaydetDers);
-        btnKaydetDers.addActionListener(e -> {
-            if (txtDersCredit.isValid() && txtDersName.isValid() && txtDersKodu.isValid()){
-                courseManager.add(new Course(txtDersKodu.getText(),txtDersName.getText(),Integer.parseInt(txtDersCredit.getText())));
+        JButton btnDersKaydet = new JButton("Kaydet");
+        btnDersKaydet.setBounds(350, 310, 150, 30);
+        panelDersEkle.add(btnDersKaydet);
+        btnDersKaydet.addActionListener(e -> {
+            if (txtDersKredisi.isValid() && txtDersName.isValid() && txtDersKodu.isValid()){
+                courseManager.add(new Course(txtDersKodu.getText(),txtDersName.getText(),Integer.parseInt(txtDersKredisi.getText())));
             }
             else
                 JOptionPane.showMessageDialog(this, "Lütfen tüm kutucukları doldurunuz!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -202,13 +201,13 @@ public class AdminPage extends AbstractPanel {
         // Derse öğretim üyesi atama
         JComboBox<Course> comboBoxCourses = new JComboBox<>();
         comboBoxCourses.setBounds(50,400,200,30);
-        pnlDersEkle.add(comboBoxCourses);
+        panelDersEkle.add(comboBoxCourses);
         JComboBox<Lecturer> comboBoxLecturers = new JComboBox<>();
         comboBoxLecturers.setBounds(250,400,200,30);
-        pnlDersEkle.add(comboBoxLecturers);
+        panelDersEkle.add(comboBoxLecturers);
         JButton btnSetLecturer = new JButton("Öğretim üyesi ata");
         btnSetLecturer.setBounds(50,430,200,30);
-        pnlDersEkle.add(btnSetLecturer);
+        panelDersEkle.add(btnSetLecturer);
         btnSetLecturer.addActionListener(e -> {
             Course selectedCourse = (Course) comboBoxCourses.getSelectedItem();
             Lecturer selectedLecturer = (Lecturer) comboBoxLecturers.getSelectedItem();
@@ -216,16 +215,16 @@ public class AdminPage extends AbstractPanel {
         });
 
 
-        // Öğrenci Listesi Paneli
-        JPanel pnlOgrenciListesi = new JPanel();
-        pnlOgrenciListesi.setBounds(220, 10, 550, 540);
-        pnlOgrenciListesi.setLayout(new BorderLayout());
+        // Öğrenci Listesi Panelini oluşturma
+        JPanel panelOgrenciListesi = new JPanel();
+        panelOgrenciListesi.setBounds(220, 40, 550, 510);
+        panelOgrenciListesi.setLayout(new BorderLayout());
 
         JLabel lblOgrenciListesi = new JLabel("Öğrenci Listesi", SwingConstants.CENTER);
         lblOgrenciListesi.setFont(new Font("Arial", Font.BOLD, 24));
-        pnlOgrenciListesi.add(lblOgrenciListesi, BorderLayout.NORTH);
+        panelOgrenciListesi.add(lblOgrenciListesi, BorderLayout.NORTH);
 
-        // Öğrencilerin listeleneceği bir JTable oluşturuyoruz
+        // Öğrenci tablosu
         final String[][] columnNames = {{"ID","Ad Soyad", "Fakülte / Bölüm", "Mail"}};
         final Object[][][] rowData = {{
                 {"Ali Veli", "Bilgisayar Mühendisliği", "ali@uni.com"},
@@ -234,43 +233,39 @@ public class AdminPage extends AbstractPanel {
 
         final JTable[] studentTable = {new JTable(rowData[0], columnNames[0])};
         final JScrollPane[] scrollPane = {new JScrollPane(studentTable[0])};
-        pnlOgrenciListesi.add(scrollPane[0], BorderLayout.CENTER);
+        panelOgrenciListesi.add(scrollPane[0], BorderLayout.CENTER);
 
-        // Öğretim Üyeleri Listesi Paneli
-        JPanel pnlOgretimGorevlileriListesi = new JPanel();
-        pnlOgretimGorevlileriListesi.setBounds(220, 10, 550, 540);
-        pnlOgretimGorevlileriListesi.setLayout(new BorderLayout());
+        // Öğretim Üyeleri Listeleme Panelini oluşturma
+        JPanel panelOgretimGorevlileriListesi = new JPanel();
+        panelOgretimGorevlileriListesi.setBounds(220, 40, 550, 510);
+        panelOgretimGorevlileriListesi.setLayout(null);
+
+        JPanel subPnlOgretimGorevlileriListesi = new JPanel();
+        subPnlOgretimGorevlileriListesi.setBounds(220, 40, 550, 480);
+        panelOgretimGorevlileriListesi.setLayout(new BorderLayout());
+        panelOgretimGorevlileriListesi.add(subPnlOgretimGorevlileriListesi);
 
         JLabel lblOgretimGorevlileriListesi = new JLabel("Öğretim Üyeleri Listesi", SwingConstants.CENTER);
         lblOgretimGorevlileriListesi.setFont(new Font("Arial", Font.BOLD, 24));
-        pnlOgretimGorevlileriListesi.add(lblOgretimGorevlileriListesi, BorderLayout.NORTH);
+        subPnlOgretimGorevlileriListesi.add(lblOgretimGorevlileriListesi, BorderLayout.NORTH);
 
         String[] lecturerColumnNames = {"ID","Ad Soyad", "Fakülte / Bölüm", "Mail"};
-        final Object[][][] lecturerRowData = {{
-                {"Dr. Mehmet Kaya", "Bilgisayar Mühendisliği", "mehmet@uni.com"},
-                {"Prof. Ahmet Demir", "Elektrik Mühendisliği", "ahmet@uni.com"}
-        }};
+        final Object[][][] lecturerRowData = {{{}}};
 
         final JTable[] lecturerTable = {new JTable(lecturerRowData[0], lecturerColumnNames)};
         final JScrollPane[] lecturerScrollPane = {new JScrollPane(lecturerTable[0])};
-        pnlOgretimGorevlileriListesi.add(lecturerScrollPane[0], BorderLayout.CENTER);
+        panelOgretimGorevlileriListesi.add(lecturerScrollPane[0], BorderLayout.CENTER);
 
-        JButton btnOgrGrvSil = new JButton("Sil");
-        btnOgrGrvSil.setPreferredSize(new Dimension(550, 30));
-        pnlOgretimGorevlileriListesi.add(btnOgrGrvSil,BorderLayout.SOUTH);
-        btnOgrGrvSil.addActionListener(e -> {
-            lecturerManager.delete(Long.parseLong(lecturerTable[0].getValueAt(lecturerTable[0].getSelectedRow(),1).toString()));
-            JOptionPane.showMessageDialog(this, "Öğretim görevlisi silindi", "Bilgi", JOptionPane.INFORMATION_MESSAGE);
-        });
+
 
         // Dersler Listesi Paneli
-        JPanel pnlDerslerListesi = new JPanel();
-        pnlDerslerListesi.setBounds(220, 10, 550, 540);
-        pnlDerslerListesi.setLayout(new BorderLayout());
+        JPanel panelDerslerListesi = new JPanel();
+        panelDerslerListesi.setBounds(220, 40, 550, 510);
+        panelDerslerListesi.setLayout(new BorderLayout());
 
         JLabel lblDerslerListesi = new JLabel("Dersler Listesi", SwingConstants.CENTER);
         lblDerslerListesi.setFont(new Font("Arial", Font.BOLD, 24));
-        pnlDerslerListesi.add(lblDerslerListesi, BorderLayout.NORTH);
+        panelDerslerListesi.add(lblDerslerListesi, BorderLayout.NORTH);
 
         String[] courseColumnNames = {"Ders Kodu", "Ders Adı", "Kredi" , "ÖG Id"};
         final Object[][][] courseRowData = {{
@@ -280,42 +275,57 @@ public class AdminPage extends AbstractPanel {
 
         final JTable[] courseTable = {new JTable(courseRowData[0], courseColumnNames)};
         final JScrollPane[] courseScrollPane = {new JScrollPane(courseTable[0])};
-        pnlDerslerListesi.add(courseScrollPane[0], BorderLayout.CENTER);
+        panelDerslerListesi.add(courseScrollPane[0], BorderLayout.CENTER);
 
-        JButton btnDersSil = new JButton("Sil");
-        btnDersSil.setBounds(220, 510, 550, 30); // Panelin en altına yerleştiriyoruz
-        pnlDerslerListesi.add(btnDersSil);
-        btnDersSil.addActionListener(e -> {
-            JOptionPane.showMessageDialog(this, "Alt Buton Tıklandı!", "Bilgi", JOptionPane.INFORMATION_MESSAGE);
-        });
-
+        /////////////////////////////////////////
 
         JButton logoutButton = createLogoutButton(frame);
         this.add(logoutButton);
 
-        pnlOgretimGorevlisiEkle.setVisible(true);
-        pnlOgrenciEkle.setVisible(false);
-        pnlDersEkle.setVisible(false);
-        pnlOgrenciListesi.setVisible(false);
-        pnlOgretimGorevlileriListesi.setVisible(false);
-        pnlDerslerListesi.setVisible(false);
+        panelOgretimGorevlisiEkle.setVisible(true);
+        panelOgrenciEkle.setVisible(false);
+        panelDersEkle.setVisible(false);
+        panelOgrenciListesi.setVisible(false);
+        panelOgretimGorevlileriListesi.setVisible(false);
+        panelDerslerListesi.setVisible(false);
 
-        btnOgretimGorevlisiEkle.addActionListener(e -> {
-            pnlOgretimGorevlisiEkle.setVisible(true);
-            pnlOgrenciEkle.setVisible(false);
-            pnlDersEkle.setVisible(false);
-            pnlOgrenciListesi.setVisible(false);
-            pnlOgretimGorevlileriListesi.setVisible(false);
-            pnlDerslerListesi.setVisible(false);
+        final int[] whichPage = {0};
+
+        JButton btnSil = new JButton("Sil");
+        btnSil.setBounds(230, 520, 100, 30);
+        this.add(btnSil);
+        btnSil.addActionListener(e -> {
+            if (whichPage[0] == 1){
+                studentManager.delete(Long.parseLong(studentTable[0].getValueAt(studentTable[0].getSelectedRow(),0).toString()));
+                JOptionPane.showMessageDialog(this, "Öğrenci silindi", "Bilgi", JOptionPane.INFORMATION_MESSAGE);
+            } else if (whichPage[0] == 2) {
+                lecturerManager.delete(Long.parseLong(lecturerTable[0].getValueAt(lecturerTable[0].getSelectedRow(),0).toString()));
+                JOptionPane.showMessageDialog(this, "Öğretim görevlisi silindi", "Bilgi", JOptionPane.INFORMATION_MESSAGE);
+            } else if (whichPage[0] == 3) {
+                Course currentCourse = courseManager.getByCourseCode(courseTable[0].getValueAt(courseTable[0].getSelectedRow(),0).toString());
+                courseManager.delete(currentCourse.getId());
+                JOptionPane.showMessageDialog(this, "Ders silindi", "Bilgi", JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+
+        btnOgrGrvEkle.addActionListener(e -> {
+            btnSil.setVisible(false);
+            panelOgretimGorevlisiEkle.setVisible(true);
+            panelOgrenciEkle.setVisible(false);
+            panelDersEkle.setVisible(false);
+            panelOgrenciListesi.setVisible(false);
+            panelOgretimGorevlileriListesi.setVisible(false);
+            panelDerslerListesi.setVisible(false);
         });
 
         btnOgrenciEkle.addActionListener(e -> {
-            pnlOgretimGorevlisiEkle.setVisible(false);
-            pnlOgrenciEkle.setVisible(true);
-            pnlDersEkle.setVisible(false);
-            pnlOgrenciListesi.setVisible(false);
-            pnlOgretimGorevlileriListesi.setVisible(false);
-            pnlDerslerListesi.setVisible(false);
+            btnSil.setVisible(false);
+            panelOgretimGorevlisiEkle.setVisible(false);
+            panelOgrenciEkle.setVisible(true);
+            panelDersEkle.setVisible(false);
+            panelOgrenciListesi.setVisible(false);
+            panelOgretimGorevlileriListesi.setVisible(false);
+            panelDerslerListesi.setVisible(false);
         });
 
         btnDersEkle.addActionListener(e -> {
@@ -331,12 +341,13 @@ public class AdminPage extends AbstractPanel {
             }
 
 
-            pnlOgretimGorevlisiEkle.setVisible(false);
-            pnlOgrenciEkle.setVisible(false);
-            pnlDersEkle.setVisible(true);
-            pnlOgrenciListesi.setVisible(false);
-            pnlOgretimGorevlileriListesi.setVisible(false);
-            pnlDerslerListesi.setVisible(false);
+            btnSil.setVisible(false);
+            panelOgretimGorevlisiEkle.setVisible(false);
+            panelOgrenciEkle.setVisible(false);
+            panelDersEkle.setVisible(true);
+            panelOgrenciListesi.setVisible(false);
+            panelOgretimGorevlileriListesi.setVisible(false);
+            panelDerslerListesi.setVisible(false);
         });
 
         btnOgrenciListesi.addActionListener(e -> {
@@ -358,19 +369,22 @@ public class AdminPage extends AbstractPanel {
             studentTable[0] = new JTable(rowData[0], columnNames[0]);
             scrollPane[0] = new JScrollPane(studentTable[0]);
 
-            pnlOgrenciListesi.removeAll();  // Mevcut bileşenleri temizle
-            pnlOgrenciListesi.add(scrollPane[0], BorderLayout.CENTER);  // Yeni tabloyu ekle
-            pnlOgrenciListesi.revalidate();  // Yeniden düzenle
-            pnlOgrenciListesi.repaint();     // Yeniden çiz
-            pnlOgretimGorevlisiEkle.setVisible(false);
-            pnlOgrenciEkle.setVisible(false);
-            pnlDersEkle.setVisible(false);
-            pnlOgrenciListesi.setVisible(true);
-            pnlOgretimGorevlileriListesi.setVisible(false);
-            pnlDerslerListesi.setVisible(false);
+            panelOgrenciListesi.removeAll();  // Mevcut bileşenleri temizle
+            panelOgrenciListesi.add(scrollPane[0], BorderLayout.CENTER);  // Yeni tabloyu ekle
+            panelOgrenciListesi.revalidate();  // Yeniden düzenle
+            panelOgrenciListesi.repaint();     // Yeniden çiz
+
+            whichPage[0] = 1;
+            btnSil.setVisible(true);
+            panelOgretimGorevlisiEkle.setVisible(false);
+            panelOgrenciEkle.setVisible(false);
+            panelDersEkle.setVisible(false);
+            panelOgrenciListesi.setVisible(true);
+            panelOgretimGorevlileriListesi.setVisible(false);
+            panelDerslerListesi.setVisible(false);
         });
 
-        btnOgretimGorevlileriListesi.addActionListener(e -> {
+        btnOgrGrvListesi.addActionListener(e -> {
             List<Lecturer> lecturers = lecturerManager.getAll();
 
             lecturerRowData[0] = new Object[lecturers.size()][4];
@@ -384,17 +398,19 @@ public class AdminPage extends AbstractPanel {
 
             lecturerTable[0] = new JTable(lecturerRowData[0], lecturerColumnNames);
             lecturerScrollPane[0] = new JScrollPane(lecturerTable[0]);
-            pnlOgretimGorevlileriListesi.removeAll();
-            pnlOgretimGorevlileriListesi.add(lecturerScrollPane[0], BorderLayout.CENTER);
-            pnlOgretimGorevlileriListesi.revalidate();
-            pnlOgretimGorevlileriListesi.repaint();
+            panelOgretimGorevlileriListesi.removeAll();
+            panelOgretimGorevlileriListesi.add(lecturerScrollPane[0], BorderLayout.CENTER);
+            panelOgretimGorevlileriListesi.revalidate();
+            panelOgretimGorevlileriListesi.repaint();
 
-            pnlOgretimGorevlisiEkle.setVisible(false);
-            pnlOgrenciEkle.setVisible(false);
-            pnlDersEkle.setVisible(false);
-            pnlOgrenciListesi.setVisible(false);
-            pnlOgretimGorevlileriListesi.setVisible(true);
-            pnlDerslerListesi.setVisible(false);
+            whichPage[0] = 2;
+            btnSil.setVisible(true);
+            panelOgretimGorevlisiEkle.setVisible(false);
+            panelOgrenciEkle.setVisible(false);
+            panelDersEkle.setVisible(false);
+            panelOgrenciListesi.setVisible(false);
+            panelOgretimGorevlileriListesi.setVisible(true);
+            panelDerslerListesi.setVisible(false);
         });
 
         btnDerslerListesi.addActionListener(e -> {
@@ -415,28 +431,30 @@ public class AdminPage extends AbstractPanel {
 
             courseTable[0] = new JTable(courseRowData[0], courseColumnNames);
             courseScrollPane[0] = new JScrollPane(courseTable[0]);
-            pnlDerslerListesi.removeAll();
-            pnlDerslerListesi.add(courseScrollPane[0], BorderLayout.CENTER);
-            pnlDerslerListesi.revalidate();
-            pnlDerslerListesi.repaint();
+            panelDerslerListesi.removeAll();
+            panelDerslerListesi.add(courseScrollPane[0], BorderLayout.CENTER);
+            panelDerslerListesi.revalidate();
+            panelDerslerListesi.repaint();
 
-            pnlOgretimGorevlisiEkle.setVisible(false);
-            pnlOgrenciEkle.setVisible(false);
-            pnlDersEkle.setVisible(false);
-            pnlOgrenciListesi.setVisible(false);
-            pnlOgretimGorevlileriListesi.setVisible(false);
-            pnlDerslerListesi.setVisible(true);
+            whichPage[0] = 3;
+            btnSil.setVisible(true);
+            panelOgretimGorevlisiEkle.setVisible(false);
+            panelOgrenciEkle.setVisible(false);
+            panelDersEkle.setVisible(false);
+            panelOgrenciListesi.setVisible(false);
+            panelOgretimGorevlileriListesi.setVisible(false);
+            panelDerslerListesi.setVisible(true);
         });
 
 
 
-        this.add(leftPanel);
-        this.add(pnlOgretimGorevlisiEkle);
-        this.add(pnlOgrenciEkle);
-        this.add(pnlDersEkle);
-        this.add(pnlOgrenciListesi);
-        this.add(pnlOgretimGorevlileriListesi);
-        this.add(pnlDerslerListesi);
+        this.add(menuPanel);
+        this.add(panelOgretimGorevlisiEkle);
+        this.add(panelOgrenciEkle);
+        this.add(panelDersEkle);
+        this.add(panelOgrenciListesi);
+        this.add(panelOgretimGorevlileriListesi);
+        this.add(panelDerslerListesi);
 
         this.setVisible(true);
 

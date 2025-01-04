@@ -6,9 +6,9 @@ public class User extends BaseEntity {
     private String mail;
     private String username;
     private String password;
-    private String role; // Student, Lecturer, Admin gibi rolleri tutabilir.
+    private String role; // Student, Lecturer gibi rolleri tutabilir.
 
-    // constructor
+    // constructorlar
     public User(long id, String username, String password, String role, String mail) {
         super(id);
         this.userId = ++lastUserId;

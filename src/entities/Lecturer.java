@@ -8,11 +8,11 @@ public class Lecturer extends User {
     private String faculty;
     private List<Course> courses = new ArrayList<>();
 
-    // Constructor
+    // contructorlar
     public Lecturer(String username, String password,String faculty,String mail) {
         super(++lastId, username, password, "Öğretim Görevlisi",mail);
         this.faculty = faculty;
-    }
+    } //overloading örneği
     public Lecturer(long id, String username, String password,String faculty,String mail) {
         super(id, username, password, "Öğretim Görevlisi",mail);
         this.faculty = faculty;
